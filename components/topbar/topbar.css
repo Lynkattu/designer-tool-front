@@ -1,0 +1,19 @@
+.topbar {
+    margin: 0;
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px solid var(--border);
+    background-color: var(--primary-color);
+}
+
+.topbar button {
+    margin: 0.5rem;
+    background-color: var(--secondary-color);
+    border: none;
+}
+
+.topbar button:hover {
+    background-color: var(--secondary-color-hover);
+}
