@@ -1,10 +1,13 @@
 :root {
   --border: #3d3b17;
-  --primary-color: rgb(23, 23, 23);
-  --secondary-color: rgb(210, 210, 0);
+  --text-color: rgb(230, 209, 23);
+  --primary-color: rgb(28, 28, 28);
+  --secondary-color: rgb(195, 195, 0);
   --secondary-color-hover: rgb(240, 240, 0);
-  background-color: #333;
-  font-size: 18px;
+  --background-color: #353535;
+  --dark-background-color: #252525;
+  background-color: var(--background-color);
+  font-size: 16px;
 }
 
 #root {

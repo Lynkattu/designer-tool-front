@@ -1,0 +1,70 @@
+.topbar {
+    margin: 0;
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px solid var(--border);
+    background-color: var(--primary-color);
+}
+
+.topbar .left {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.topbar .right {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.topbar button {
+    margin: 0.75rem 0.75rem 0.75rem 0;
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    border: none;
+    transform: skew(25deg); /* Adjust the skew angle as needed */
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    padding: 0.4rem 0.8rem;
+}
+
+.topbar button:hover {
+    background-color: var(--secondary-color-hover);
+    transform: skew(0deg);
+    transition: 0.3s ease-in-out;
+}
+
+.topbar button > p {
+    margin: 0;
+    font-size: 1rem;
+    transform: skew(-25deg);
+    transition: 0.3s ease-in-out;
+
+}
+
+.topbar button:hover > p {
+    transform: skew(0deg);
+    transition: 0.3s ease-in-out;
+}
+
+
+.topbar .stripe {
+    width: 15%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: 
+      repeating-linear-gradient(
+    45deg,
+    var(--secondary-color),
+    var(--secondary-color) 10px,
+    var(--primary-color) 10px,
+    var(--primary-color) 20px
+  );
+}

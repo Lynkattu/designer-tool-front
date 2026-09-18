@@ -1,12 +1,21 @@
 import './App.css'
-import Topbar from '../components/topbar/topbar'
+import Home from './pages/home/home.tsx'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from './pages/login/login.tsx';
+import Register from './pages/register/register.tsx';
+
 
 function App() {
 
   return (
     <>
-      <Topbar />
-      <h1>Designer Tool</h1>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+      </Routes>
+    </BrowserRouter>
     </>
   )
 }
