@@ -1,0 +1,31 @@
+.basic-button {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.basic-button > button {
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    padding: 0.4rem 0.8rem;
+    box-shadow: 0 3px 6px rgba(255, 255, 0, 0.3);
+    transform: scale(1);
+
+}
+
+.basic-button button:hover {
+    background-color: var(--secondary-color-hover);
+    transition: 0.3s ease-in-out;
+    transform: scale(1.05);
+}
+
+.basic-button button > p {
+    margin: 0;
+    font-size: 1rem;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 3px 6px rgba(255, 255, 0, 0.4);
+
+}

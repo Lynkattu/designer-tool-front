@@ -1,7 +1,10 @@
 import NavIcon from '../../common/navIcon/navIcon';
-import './topbar.css'
+import './topbar.css';
 import { useNavigate } from "react-router-dom";
-import SiteLogo from '../../../assets/site_logo.png'
+import SkewButton from '../../common/skewButton/skewButton';
+
+import SiteLogo from '../../../assets/site_logo.png';
+import CornerTriangle from '../../common/cornerTriangle/cornerTriangle';
 
 function Topbar() {
   const navigate = useNavigate();
@@ -9,15 +12,18 @@ function Topbar() {
   return (
     <div className="topbar">
         <div className="left">
-            <div className="stripe"></div>
-            <NavIcon imageSrc={SiteLogo} maxWidth="48px" navigateTo="/" />
+          <CornerTriangle position="top-left" size="50px" />
+          <NavIcon imageSrc={SiteLogo} maxWidth="48px" navigateTo="/" />
         </div>
 
 
         <div className="right">
-            <button onClick={() => navigate('/login')}><p>Sign In</p></button>
-            <button onClick={() => navigate('/register')}><p>Sign Up</p></button>
-            <div className="stripe"></div>
+            <SkewButton text="Sign In" onClick={() => navigate('/login')} />
+            <SkewButton text="Sign Up" onClick={() => navigate('/register')} />
+            <CornerTriangle 
+              position="top-right" 
+              size="50px"
+            />
         </div>
     </div>
   )

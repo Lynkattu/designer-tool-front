@@ -1,0 +1,88 @@
+/* HTML: <div class="triangle"></div> */
+.triangle-top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  --r:8px; /* border radius */
+  width: 100px;
+  aspect-ratio: 1;
+  border-top-right-radius: var(--r);
+  clip-path: polygon(100% 100%,0 0,100% 0);
+  --_g:calc(50%*(1 + 1/tan(22.5deg)) - var(--r)/(3*sqrt(2) - 4));
+  --_r:calc(var(--r)/tan(22.5deg)),#000 98%,#0000 101%;
+
+  background: repeating-linear-gradient(
+    45deg,
+    var(--secondary-color),
+    var(--secondary-color) 10px,
+    var(--primary-color) 10px,
+    var(--primary-color) 20px
+  );
+}
+
+/* HTML: <div class="triangle"></div> */
+.triangle-bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  --r:8px; /* border radius */
+  width: 100px;
+  aspect-ratio: 1;
+  border-bottom-left-radius: var(--r);
+  clip-path: polygon(0 0,100% 100%,0 100%);
+  --_g:calc(50%*(1 + 1/tan(22.5deg)) - var(--r)/(3*sqrt(2) - 4));
+  --_r:calc(var(--r)/tan(22.5deg)),#000 98%,#0000 101%;
+
+  background: repeating-linear-gradient(
+    45deg,
+    var(--secondary-color),
+    var(--secondary-color) 10px,
+    var(--primary-color) 10px,
+    var(--primary-color) 20px
+  );
+}
+
+/* HTML: <div class="triangle"></div> */
+.triangle-top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  --r:8px; /* border radius */
+
+  width: 100px;
+  aspect-ratio: 1;
+  border-top-left-radius: var(--r);
+  clip-path: polygon(0 100%,100% 0,0 0);
+  --_g:calc(50%*(1 + 1/tan(22.5deg)) - var(--r)/(3*sqrt(2) - 4));
+  --_r:calc(var(--r)/tan(22.5deg)),#000 98%,#0000 101%;
+
+  background: repeating-linear-gradient(
+    315deg,
+    var(--secondary-color),
+    var(--secondary-color) 10px,
+    var(--primary-color) 10px,
+    var(--primary-color) 20px
+  );
+}
+
+/* HTML: <div class="triangle"></div> */
+.triangle-bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  --r:8px; /* border radius */
+  width: 100px;
+  aspect-ratio: 1;
+  border-bottom-right-radius: var(--r);
+  clip-path: polygon(100% 0,0 100%,100% 100%);
+  --_g:calc(50%*(1 + 1/tan(22.5deg)) - var(--r)/(3*sqrt(2) - 4));
+  --_r:calc(var(--r)/tan(22.5deg)),#000 98%,#0000 101%;
+
+  background: repeating-linear-gradient(
+    315deg,
+    var(--secondary-color),
+    var(--secondary-color) 10px,
+    var(--primary-color) 10px,
+    var(--primary-color) 20px
+  );
+}

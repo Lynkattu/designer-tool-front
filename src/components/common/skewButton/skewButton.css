@@ -1,0 +1,28 @@
+.skew-button > button {
+    margin: 0.75rem 1.25rem 0.75rem 0;
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    border: none;
+    transform: skew(45deg);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    padding: 0.4rem 0.8rem;
+}
+
+.skew-button > button:hover {
+    background-color: var(--secondary-color-hover);
+    transform: skew(0deg);
+    transition: 0.3s ease-in-out;
+}
+
+.skew-button > button > p {
+    margin: 0;
+    font-size: 1rem;
+    transform: skew(-45deg);
+    transition: 0.3s ease-in-out;
+}
+
+.skew-button > button:hover > p {
+    transform: skew(0deg);
+    transition: 0.3s ease-in-out;
+}

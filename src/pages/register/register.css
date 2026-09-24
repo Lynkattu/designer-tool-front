@@ -14,6 +14,7 @@
 }
 
 .register .register-container {
+    position: relative;
     max-width: 400px;
     width: 100%;
     margin: 0 auto;
@@ -23,7 +24,22 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.register .register-container h2 {
+.register .register-container > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.register .register-container > div img {
+    display: inline-block;
+    width: 100px;
+    margin-right: 1rem;
+}
+
+
+.register .register-container > div h2 {
+    font-size: 2rem;
     color: var(--text-color);
     text-align: center;
 }
@@ -36,7 +52,7 @@
     margin-top: 2rem;
 }
 
-.register form label {
+.register .register-content .register-container > form label {
     display: inline-block;
     color: var(--text-color);
     width: 200px;
@@ -44,11 +60,17 @@
     font-weight: bold;
 }
 
-.register form input {
+.register .register-content .register-container > form input {
     color: var(--text-color);
     padding: 0.5rem;
     margin-bottom: 1rem;
     border: 1px solid var(--border);
     border-radius: 4px;
     background-color: var(--dark-background-color);
+}
+
+.register .register-content .register-container > form input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 5px var(--secondary-color);
 }

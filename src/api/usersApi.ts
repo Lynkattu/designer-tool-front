@@ -1,5 +1,5 @@
 import axios from "axios";
-import { UserRequestModel } from "../models/userRequestModel.ts";
+import type {NewUserModel} from "../models/newUserModel.ts"
 
 const api = axios.create({
   baseURL: "http://localhost:8080/api",
@@ -28,7 +28,7 @@ const getUserById = async (id: string) => {
   }
 };
 
-const createUser = async (newUser: UserRequestModel) => {
+const saveUser = async (newUser: NewUserModel) => {
   try {
     const response = await api.post("/users", newUser);
     return response.data;
@@ -38,4 +38,4 @@ const createUser = async (newUser: UserRequestModel) => {
   }
 };
 
-export { getUsers, getUserById, createUser };
+export { getUsers, getUserById, saveUser };
