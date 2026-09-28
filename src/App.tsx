@@ -7,7 +7,6 @@ import Moodboard from './pages/moodboard/moodboard.tsx';
 
 
 function App() {
-
   return (
     <>
     <BrowserRouter>

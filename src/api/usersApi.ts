@@ -38,4 +38,12 @@ const saveUser = async (newUser: NewUserModel) => {
   }
 };
 
-export { getUsers, getUserById, saveUser };
+const findUserByUsername = async (username: string) => {
+  try {
+    return api.get(`/users/${username}`);
+  } catch (error) {
+    throw error;
+  }
+}
+
+export { getUsers, getUserById, saveUser, findUserByUsername };
