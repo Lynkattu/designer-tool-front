@@ -38,9 +38,14 @@ const saveUser = async (newUser: NewUserModel) => {
   }
 };
 
-const findUserByUsername = async (username: string) => {
+const findUserByUsername = async (username: string, token: string) => {
+  console.log(`Finding user by username: ${username} with token: ${token}`);
   try {
-    return api.get(`/users/${username}`);
+    return await api.get(`/users/username/${username}`, {
+      headers: {
+        "Authorization": `Bearer ${token}`
+      }
+    });
   } catch (error) {
     throw error;
   }

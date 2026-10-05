@@ -1,5 +1,4 @@
 import axios from "axios";
-import type { LoginModel } from "../models/loginModel";
 
 const api = axios.create({
   baseURL: "http://localhost:8080/api/auth",
@@ -8,9 +7,9 @@ const api = axios.create({
   },
 });
 
-const login = async (login: LoginModel) => {
+const login = async (login: { username: string, password: string }) => {
     try {
-        return api.post('/login', login);
+        return await api.post('/login', login);
     } catch(error) {
         console.log(`Error on authentication: ${error}`);
         throw error;
