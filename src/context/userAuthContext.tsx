@@ -12,6 +12,7 @@ export const UserAuthContext = createContext<UserAuthModel>({} as UserAuthModel)
 
 export function UserAuthProvider({ children }: Props) {
     const [user, setUser] = useState<UserProfile | null>(null)
+    const [token, setToken] = useState<String | null>(null)
 
     useEffect(() => {
         if(user) {
@@ -24,6 +25,7 @@ export function UserAuthProvider({ children }: Props) {
             const tokenRes = await login({ username, password })
             console.log("Token response:", tokenRes);
             const token = tokenRes.data.token;
+            setToken(token);
             if(tokenRes.status === 200) {
                 const userRes = await findUserByUsername(username, token);
                 if(userRes.status === 200) {
@@ -49,7 +51,7 @@ export function UserAuthProvider({ children }: Props) {
     }
 
     return (
-        <UserAuthContext.Provider value={{ user, loginUser, logoutUser }}>
+        <UserAuthContext.Provider value={{ user, token, loginUser, logoutUser }}>
             {children}
         </UserAuthContext.Provider>
   );

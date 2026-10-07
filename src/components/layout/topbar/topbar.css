@@ -3,6 +3,7 @@
     width: 100vw;
     height: 50px;
     display: flex;
+    position: relative;
     flex-direction: row;
     border-bottom: 2px solid var(--border);
     background-color: var(--primary-color);

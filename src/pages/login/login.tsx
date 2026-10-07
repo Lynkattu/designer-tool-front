@@ -2,8 +2,10 @@ import './login.css'
 import Topbar from '../../components/layout/topbar/topbar.tsx'
 import { UserAuthContext } from '../../context/userAuthContext.tsx'
 import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+  const navigate = useNavigate();
   const { loginUser } = useContext(UserAuthContext);
   const [info, setInfo] = useState<{ username: string; password: string }>({ username: '', password: '' });
 
@@ -11,10 +13,12 @@ function Login() {
     event.preventDefault();
     // Handle form submission logic here
     const response = await loginUser(info.username, info.password);
+
     if (response.isSucessful) {
       console.log("Login successful");
-      // Redirect or perform any other actions after successful login
-    } else {
+      navigate('/');
+    }
+    else {
       console.log("Login failed:", response.message);
       // Show error message to the user
     }

@@ -1,0 +1,24 @@
+.moodboard .moodboard-content {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+
+.moodboard .moodboard-content .moodboard-canvas {
+    position: relative;
+    margin: 0;
+    width: calc(100% - 300px);
+    height: calc(100vh - 52px);
+}
+
+.moodboard .moodboard-content .moodboard-sidebar {
+    position: relative;
+    width: 300px;
+    margin: 0;
+    padding: 0;
+    height: calc(100vh - 52px);
+}

@@ -1,25 +1,39 @@
 import './moodboard.css'
 import Topbar from '../../components/layout/topbar/topbar';
-import { useState } from 'react';
-import { Circle, Layer, Rect, Stage, Text } from 'react-konva';
+import { useContext, useEffect, useState } from 'react';
+import { Circle, Layer, Rect, Stage } from 'react-konva';
+import { UserAuthContext } from '../../context/userAuthContext';
+import { useNavigate } from 'react-router-dom';
+import DesignerSidebar from '../../components/layout/designerSidebar/designerSidebar';
 
 function Moodboard() {
+    const navigate = useNavigate();
+    const { user } = useContext(UserAuthContext);
+
     const [rectPosition, setRectPosition] = useState({ x: 100, y: 100 });
     const [circlePosition, setCirclePosition] = useState({ x: 220, y: 150 });
+
+    useEffect(() => {
+        if (!user) {
+            navigate('/login')
+        }
+        
+    }, [user]);
 
     return (
         <div className="moodboard">
             <Topbar />
             <div className='moodboard-content'>
-                <section className="moodboard-container">
+                <div className="moodboard-canvas">
                     <Stage width={window.innerWidth} height={window.innerHeight}>
                         <Layer>
-                            <Text text="Try to drag shapes" fontSize={15} />
                             <Rect
                                 x={rectPosition.x}
                                 y={rectPosition.y}
                                 width={100}
                                 height={100}
+                                rotation={45}
+                                opacity={0.5}
                                 fill="red"
                                 shadowBlur={10}
                                 draggable
@@ -29,16 +43,17 @@ function Moodboard() {
                                 x={circlePosition.x}
                                 y={circlePosition.y}
                                 radius={50}
+                                opacity={0.5}
                                 fill="green"
                                 draggable
                                 onDragEnd={(e) => setCirclePosition(e.target.position())}
                             />
                         </Layer>
                     </Stage>
-                </section>
-                <section className="moodboard-tools">
-
-                </section>
+                </div>
+                <div className="moodboard-sidebar">
+                    <DesignerSidebar />
+                </div>
             </div>
         </div>
     );
