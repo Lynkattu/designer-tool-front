@@ -11,14 +11,31 @@ type Props = {
 export const UserAuthContext = createContext<UserAuthModel>({} as UserAuthModel);
 
 export function UserAuthProvider({ children }: Props) {
-    const [user, setUser] = useState<UserProfile | null>(null)
-    const [token, setToken] = useState<String | null>(null)
+
+    const [user, setUser] = useState<UserProfile | null>(() => {
+        const storedUser = localStorage.getItem("user");
+        return storedUser ? JSON.parse(storedUser) : null;
+    });
+    const [token, setToken] = useState<String | null>(() => {
+        const storedToken = localStorage.getItem("token");
+        return storedToken ? JSON.parse(storedToken) : null;
+    });
 
     useEffect(() => {
-        if(user) {
-            setUser(user);
+        if (user) {
+            localStorage.setItem("user", JSON.stringify(user));
+        } else {
+            localStorage.removeItem("user");
         }
-    }, [user])
+    }, [user]);
+
+    useEffect(() => {
+        if (token) {
+            localStorage.setItem("token", JSON.stringify(token));
+        } else {
+            localStorage.removeItem("token");
+        }
+    }, [token]);
 
     const loginUser = async (username: string, password: string): Promise<{isSucessful: boolean, message: string}> => {
         try {
@@ -45,6 +62,10 @@ export function UserAuthProvider({ children }: Props) {
     const logoutUser = async () => {
         try {
             await logout()
+            setUser(null);
+            setToken(null);
+            localStorage.removeItem("user");
+            localStorage.removeItem("token");
         } catch (error) {
             throw error;
         }
