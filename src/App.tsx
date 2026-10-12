@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from './pages/login/login.tsx';
 import Register from './pages/register/register.tsx';
 import Moodboard from './pages/moodboard/moodboard.tsx';
+import Profile from './pages/profile/profile.tsx';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/moodboard" element={<Moodboard />} />
+                <Route path="/profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>
     </>
