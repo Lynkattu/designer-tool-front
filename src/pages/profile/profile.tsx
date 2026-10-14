@@ -4,6 +4,7 @@ import './profile.css'
 import { UserAuthContext } from '../../context/userAuthContext';
 import BasicButton from '../../components/common/basicButton/basicButton';
 import { useNavigate } from 'react-router-dom';
+import ProfileIcon from '../../components/common/profileIcon/profileIcon';
 
 function Profile() {
     const navigate = useNavigate();
@@ -48,7 +49,7 @@ function Profile() {
                         <h2>Profile Page</h2>
                         <BasicButton text={isEditing ? "Cancel" : "Edit"} onClick={() => setIsEditing(!isEditing)} />
                     </div>
-
+                    <ProfileIcon />
                     <form>
                         <div>
                             <label htmlFor="firstName">First Name:</label>
