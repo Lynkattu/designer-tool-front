@@ -1,8 +1,11 @@
-import { useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import './profileIcon.css';
-import anonymousUser from '../../../assets/anonymous_user.png';
+import anonymousUser from '../../../assets/default-icon.png';
+import { UserAuthContext } from '../../../context/userAuthContext';
 
 function ProfileIcon() {
+    const apiUrl = import.meta.env.VITE_API_URL;
+    const { user } = useContext(UserAuthContext);
     const fileUploadRef = useRef<HTMLInputElement>(null);
     const [image, setImage] = useState(anonymousUser);
 
@@ -11,6 +14,13 @@ function ProfileIcon() {
         fileUploadRef.current?.click();
 
     }
+
+    useEffect(() => {
+        if(user?.userIcon) {
+            setImage(`${apiUrl}/user-icons/${user.userIcon.iconUrl}`);
+        }
+
+    }, [image]);
 
     return (
         <div className="profile-icon">

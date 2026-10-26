@@ -1,8 +1,10 @@
 import axios from "axios";
 import type {NewUserModel} from "../models/newUserModel.ts"
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
 const api = axios.create({
-  baseURL: "http://localhost:8080/api",
+  baseURL: `${apiUrl}/api`,
   headers: {
     "Content-Type": "application/json",
   },

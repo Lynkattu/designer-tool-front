@@ -1,3 +1,5 @@
+import type { UserIconModel } from "./userIconModel";
+
 export interface UserProfile {
   firstName: string;
   lastName: string;
@@ -5,4 +7,5 @@ export interface UserProfile {
   phone?: string;
   username: string;
   role: string;
+  userIcon: UserIconModel;
 }
