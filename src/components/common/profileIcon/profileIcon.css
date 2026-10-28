@@ -3,7 +3,7 @@
 
 }
 
-.profile-icon > img {
+.profile-icon > form img {
     object-fit: cover;
     border-radius: 50%;
     width: 96px;
@@ -11,7 +11,7 @@
 
 }
 
-.profile-icon > button {
+.profile-icon > form button {
     position: absolute;
     bottom: 0;
     width: 96px;

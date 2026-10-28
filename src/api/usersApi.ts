@@ -5,10 +5,11 @@ const apiUrl = import.meta.env.VITE_API_URL;
 
 const api = axios.create({
   baseURL: `${apiUrl}/api`,
-  headers: {
-    "Content-Type": "application/json",
-  },
 });
+
+api.interceptors.response.use(
+  (response) => response
+);
 
 const getUsers = async () => {
   try {
@@ -53,4 +54,16 @@ const findUserByUsername = async (username: string, token: string) => {
   }
 }
 
-export { getUsers, getUserById, saveUser, findUserByUsername };
+const saveUserIcon = async (userId: string, file: File) => {
+  try {
+    const formData = new FormData();
+    formData.append("file", file);
+    const response = await api.post(`/users/${userId}/icon`, formData);
+    return response;
+  } catch (error) {
+    console.error("Error saving user icon:", error);
+    throw error;
+  }
+};
+
+export { getUsers, getUserById, saveUser, findUserByUsername, saveUserIcon };
